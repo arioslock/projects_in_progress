@@ -1,0 +1,22 @@
+{
+  "labels":[
+    "label_adres",
+    "label_anulacja",
+    "label_brak",
+    "label_dostawa",
+    "label_faktura",
+    "label_inne",
+    "label_niekompletne",
+    "label_op\u00f3\u017anienie",
+    "label_paczka",
+    "label_ponowna",
+    "label_przesy\u0142ka",
+    "label_refund",
+    "label_reklamacja",
+    "label_uszkodzony",
+    "label_wysy\u0142ka",
+    "label_zapytanie",
+    "label_zwrot"
+  ],
+  "threshold":0.5
+}
