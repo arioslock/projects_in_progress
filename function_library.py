@@ -1,5 +1,6 @@
 import re
 from collections import Counter
+import numpy as np
 
 
 def split_string_by_char(string_to_split: str, split_char: str) -> list:
@@ -154,7 +155,7 @@ def find_all_words_matching_lemma(lemma: str ,list_of_tuple: list) -> set:
 
     Args:
         lemma (str): The lemma for which matching words are sought.
-        list_of_tuple (list): A list of tuples where the first element is a word, and the second element is the lemma matching this word.
+        list_of_tuple (list): A list of tuples where the 0 element is a word, and the 1 element is the lemma matching this word.
 
     Returns:
         set: A set of words matching the provided lemma and lemma.
@@ -163,40 +164,38 @@ def find_all_words_matching_lemma(lemma: str ,list_of_tuple: list) -> set:
     list_of_words_matching_lemma = []
     for word in list_of_tuple:
         if word[1] == lemma:
-            list_of_words_matching_lemma.append(word[1])
             list_of_words_matching_lemma.append(word[0])
     return set(list_of_words_matching_lemma)
 
-def get_all_values (dict1: dict, dict0: dict):
-    final_dict = {}
-    key_lvl1 = []
-    key_lvl1.append(list(dict1.keys()))
-    key_lvl1 = list(chain(*key_lvl1))
-    not_working_keys = []
-    for i in key_lvl1:
-        temp_vals = []
-        temp_keys = dict1[i]
-        temp_keys = [x for x in temp_keys if x is not np.nan]
-        for j in temp_keys:
-            try:
-                temp_vals.append(list(dict0[j]))
-            except Exception:
-                    not_working_keys.append(j)
-        temp_vals = set(item for sublist in temp_vals for item in sublist)
-        final_dict[i] = temp_vals
-    return not_working_keys, final_dict
+def match_words_to_labels(dict_of_labels_and_lemma_keys: dict, dict_of_lemmas_and_matching_words: dict) -> (list, dict):
+    """Returns a dictionary of labels and their corresponding matching words.
 
-def get_all_values2(dict1: dict, dict0: dict):
+    This function takes two dictionaries as arguments:
+    1. `dict_of_labels_and_lemma_keys`: A dictionary of labels with corresponding lemma keys representing various misspellings or variations of the labels.
+    2. `dict_of_lemmas_and_matching_words`: A dictionary of lemmas with their corresponding matching words.
+
+    The function iterates through each label in `dict_of_labels_and_lemma_keys`. For each label, it collects the corresponding lemma keys and attempts to find matching words for each lemma key in `dict_of_lemmas_and_matching_words`. The matched words are then added to a final dictionary, where the label serves as the key, and a set of unique matching words as the value.
+
+    Additionally, the function keeps track of any lemma keys that couldn't find a match in `dict_of_lemmas_and_matching_words` and appends them to a list called `not_working_keys`.
+
+    Args:
+        dict_of_labels_and_lemma_keys (dict): A dictionary of labels with corresponding lemma keys.
+        dict_of_lemmas_and_matching_words (dict): A dictionary of lemmas with their corresponding matching words.
+
+    Returns:
+        list: A list of lemma keys from the label dictionary that didn't match any lemma key in the lemma-words dictionary.
+        dict: A dictionary of labels and their corresponding matching words extracted from the lemma-words dictionary.
+    """
     final_dict = {}
     not_working_keys = []
 
-    for key, values in dict1.items():
+    for key, values in dict_of_labels_and_lemma_keys.items():
         valid_values = [v for v in values if v is not np.nan]
         temp_vals = []
 
         for v in valid_values:
             try:
-                temp_vals.extend(dict0[v])
+                temp_vals.extend(dict_of_lemmas_and_matching_words[v])
             except Exception:
                 not_working_keys.append(v)
 
@@ -204,12 +203,27 @@ def get_all_values2(dict1: dict, dict0: dict):
 
     return not_working_keys, final_dict
 
-def title_classification (dict_of_words: dict, title: list) -> str:
-    if len(title) > 0:
-        for key, values in dict_of_words.items():
-            for i in title:
+
+def find_label_in_list_of_words_from_title(dict_of_labels_and_matching_words: dict, list_of_words_from_title: list) -> str:
+    """Finds the label matching words in the list of words from the email title and returns the final label.
+
+    This function iterates through each element in the list of words from the email title and checks if it matches any value from the dictionary of label-words. If a match is found, it returns the corresponding label; otherwise, it returns an empty string.
+
+    Args:
+        dict_of_labels_and_matching_words (dict): A dictionary of labels and their corresponding matching words.
+        list_of_words_from_title (list): A list of words from the email title.
+
+    Returns:
+        str: The final label describing the type of email, or an empty string if no match is found.
+    """
+    if len(list_of_words_from_title) > 0:
+        for key, values in dict_of_labels_and_matching_words.items():
+            for i in list_of_words_from_title:
                 if i in values:
                     return key
+        # else:
+        #     return ""
+
 
 def set_day_to_first_of_month(date_string):
     date_obj = datetime.strptime(date_string, "%Y-%m-%d")
