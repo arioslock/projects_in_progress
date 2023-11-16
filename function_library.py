@@ -221,9 +221,43 @@ def find_label_in_list_of_words_from_title(dict_of_labels_and_matching_words: di
             for i in list_of_words_from_title:
                 if i in values:
                     return key
-        # else:
-        #     return ""
 
+def count_percentage_value_from_group(group_value_dict: dict, key_and_val: list) -> int:
+    """ Calculate the percentage value of a row compared to the total values of a group of labels.
+
+    This function takes a dictionary of keys and values, sums all the values, and calculates the percentage
+    of the value from the list.
+
+    Args:
+        group_value_dict (dict): Dictionary of keys and values.
+        key_and_val (list): Two-element list with key and value.
+
+    Returns:
+        int: Percentage value of key in the list from the total group.
+    """
+    total_group_value = sum(group_value_dict.values())
+    
+    percentage_of_total = (key_and_val[1] / total_group_value) * 100
+
+    return percentage_of_total
+
+def count_percentage_value_for_label(group_value_dict: dict, key_and_val: list) -> int:
+    """ Calculate the percentage value of a row compared to the value of label from dict.
+
+    This function takes a dictionary of keys and values, sums all the values, and calculates the percentage
+    of the value from the list.
+
+    Args:
+        group_value_dict (dict): Dictionary of keys and values.
+        key_and_val (list): Two-element list with key and value.
+
+    Returns:
+        int: Percentage value of key in the list from maching value in dict.
+    """
+    
+    percentage_of_total = (key_and_val[1] / group_value_dict[key_and_val[0]]) * 100
+
+    return percentage_of_total
 
 def set_day_to_first_of_month(date_string):
     date_obj = datetime.strptime(date_string, "%Y-%m-%d")
