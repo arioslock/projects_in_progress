@@ -288,42 +288,6 @@ def text_preprocessing(text: str) -> str:
 
     return procesed_text
 
-def model_classification_metrics_two_df (model_name: str, y_test: pd.core.series.Series, y_pred: np.ndarray) -> pd.DataFrame:
-    """Generates two DataFrames: one with detailed metrics for labels (precision, recall, f1-score) and the model name,
-    and another with accuracy for the specified model.
-
-    This function calculates classification metrics such as precision, recall, and F1-score for each label in y_test and y_pred.
-    It returns two DataFrames: 
-        - The first DataFrame includes metrics (precision, recall, f1-score) for each label and the specified model.
-        - The second DataFrame contains the accuracy score for the specified model.
-
-    Args:
-        model_name (str): Name of the model.
-        y_test (pd.core.series.Series): Actual labels from the test data.
-        y_pred (np.ndarray): Predicted labels from the model.
-
-    Returns:
-        tuple: Two DataFrames:
-            - DataFrame 1: Includes labels, precision, recall, f1-score, and model name.
-            - DataFrame 2: Includes accuracy score and model name.
-    """
-
-    report = classification_report(y_test, y_pred, output_dict=True)
-    
-    PRF_score_temp = pd.DataFrame(report).transpose()
-    PRF_score_temp.reset_index(inplace=True, names="labels")
-    PRF_score_temp['model'] = model_name
-
-    accuracy_temp = PRF_score_temp[PRF_score_temp['labels'] == 'accuracy']
-    accuracy_temp = accuracy_temp.rename(columns={'f1-score' : 'score'})
-    accuracy_temp.reset_index(inplace=True)
-    accuracy_temp = accuracy_temp[['model', 'score']] 
-
-    PRF_score_temp = PRF_score_temp.iloc[:-3]
-    PRF_score_temp = PRF_score_temp[['labels','precision', 'recall', 'f1-score', 'model']]
-
-    return PRF_score_temp, accuracy_temp
-
 def model_score_to_df(y_test: pd.Series, y_pred: np.ndarray, model_name: str) -> pd.DataFrame:
     """Generates a DataFrame with model scores such as precision, recall, F1-score, and accuracy.
 
