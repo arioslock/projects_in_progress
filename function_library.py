@@ -1,6 +1,10 @@
 import re
 from collections import Counter
 import numpy as np
+import spacy
+import pandas as pd
+from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics import accuracy_score 
 
 
 def split_string_by_char(string_to_split: str, split_char: str) -> list:
@@ -258,6 +262,121 @@ def count_percentage_value_for_label(group_value_dict: dict, key_and_val: list) 
     percentage_of_total = (key_and_val[1] / group_value_dict[key_and_val[0]]) * 100
 
     return percentage_of_total
+
+def text_preprocessing(text: str) -> str:
+    """ 
+    
+    """
+    procesed_text = ""
+    temp = []
+    
+    text = text.lower()
+    text = text.replace("&quot;", '"')
+
+    doc = nlp(test)
+    
+    for token in doc:
+        if len(token.lemma_) > 3:
+            if token.ent_type_ != '':
+                temp.append(token.ent_type_)
+            elif not token.is_punct :
+                (temp.append(token.lemma_))
+            else:
+                (temp.append(token.text))
+
+    procesed_text = " ".join(temp)
+
+    return procesed_text
+
+def model_classification_metrics_two_df (model_name: str, y_test: pd.core.series.Series, y_pred: np.ndarray) -> pd.DataFrame:
+    """Generates two DataFrames: one with detailed metrics for labels (precision, recall, f1-score) and the model name,
+    and another with accuracy for the specified model.
+
+    This function calculates classification metrics such as precision, recall, and F1-score for each label in y_test and y_pred.
+    It returns two DataFrames: 
+        - The first DataFrame includes metrics (precision, recall, f1-score) for each label and the specified model.
+        - The second DataFrame contains the accuracy score for the specified model.
+
+    Args:
+        model_name (str): Name of the model.
+        y_test (pd.core.series.Series): Actual labels from the test data.
+        y_pred (np.ndarray): Predicted labels from the model.
+
+    Returns:
+        tuple: Two DataFrames:
+            - DataFrame 1: Includes labels, precision, recall, f1-score, and model name.
+            - DataFrame 2: Includes accuracy score and model name.
+    """
+
+    report = classification_report(y_test, y_pred, output_dict=True)
+    
+    PRF_score_temp = pd.DataFrame(report).transpose()
+    PRF_score_temp.reset_index(inplace=True, names="labels")
+    PRF_score_temp['model'] = model_name
+
+    accuracy_temp = PRF_score_temp[PRF_score_temp['labels'] == 'accuracy']
+    accuracy_temp = accuracy_temp.rename(columns={'f1-score' : 'score'})
+    accuracy_temp.reset_index(inplace=True)
+    accuracy_temp = accuracy_temp[['model', 'score']] 
+
+    PRF_score_temp = PRF_score_temp.iloc[:-3]
+    PRF_score_temp = PRF_score_temp[['labels','precision', 'recall', 'f1-score', 'model']]
+
+    return PRF_score_temp, accuracy_temp
+
+def model_score_to_df(y_test: pd.Series, y_pred: np.ndarray, model_name: str) -> pd.DataFrame:
+    """Generates a DataFrame with model scores such as precision, recall, F1-score, and accuracy.
+
+    This function takes y_test dataset, y_pred calculated by the model, and the model name as arguments.
+    It computes core metrics and adds them to a DataFrame.
+
+    Args:
+        y_test (pd.Series): Actual labels from the test data.
+        y_pred (np.ndarray): Predicted labels from the model.
+        model_name (str): Name of the model.
+
+    Returns:
+        DataFrame: DataFrame containing metrics (recall, F1-score, accuracy) per label and accuracy for the model.
+    """
+
+    df_score = pd.DataFrame(columns=['model_name', 'label', 'score', 'metric'])
+
+    precision, recall, f1, support = precision_recall_fscore_support(y_test, y_pred, average=None)
+    unique_labels = np.unique(y_test)
+    accuracy = accuracy_score(y_test, y_pred)
+
+    for i, label in enumerate(unique_labels):
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': precision[i],  
+            'metric': 'precision' 
+        }, ignore_index=True)
+
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': recall[i],  
+            'metric': 'recall' 
+        }, ignore_index=True)
+
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': f1[i],  
+            'metric': 'f1-score' 
+        }, ignore_index=True)
+
+
+    df_score = df_score.append({
+        'model_name': model_name,
+        'label': 'overall',
+        'score': accuracy,
+        'metric': 'accuracy'
+    }, ignore_index=True)
+
+    return df_score
+    
 
 def set_day_to_first_of_month(date_string):
     date_obj = datetime.strptime(date_string, "%Y-%m-%d")
