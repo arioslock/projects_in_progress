@@ -1,6 +1,10 @@
 import re
 from collections import Counter
 import numpy as np
+import spacy
+import pandas as pd
+from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics import accuracy_score 
 
 
 def split_string_by_char(string_to_split: str, split_char: str) -> list:
@@ -258,6 +262,85 @@ def count_percentage_value_for_label(group_value_dict: dict, key_and_val: list) 
     percentage_of_total = (key_and_val[1] / group_value_dict[key_and_val[0]]) * 100
 
     return percentage_of_total
+
+def text_preprocessing(text: str) -> str:
+    """ 
+    
+    """
+    procesed_text = ""
+    temp = []
+    
+    text = text.lower()
+    text = text.replace("&quot;", '"')
+
+    doc = nlp(test)
+    
+    for token in doc:
+        if len(token.lemma_) > 3:
+            if token.ent_type_ != '':
+                temp.append(token.ent_type_)
+            elif not token.is_punct :
+                (temp.append(token.lemma_))
+            else:
+                (temp.append(token.text))
+
+    procesed_text = " ".join(temp)
+
+    return procesed_text
+
+def model_score_to_df(y_test: pd.Series, y_pred: np.ndarray, model_name: str) -> pd.DataFrame:
+    """Generates a DataFrame with model scores such as precision, recall, F1-score, and accuracy.
+
+    This function takes y_test dataset, y_pred calculated by the model, and the model name as arguments.
+    It computes core metrics and adds them to a DataFrame.
+
+    Args:
+        y_test (pd.Series): Actual labels from the test data.
+        y_pred (np.ndarray): Predicted labels from the model.
+        model_name (str): Name of the model.
+
+    Returns:
+        DataFrame: DataFrame containing metrics (recall, F1-score, accuracy) per label and accuracy for the model.
+    """
+
+    df_score = pd.DataFrame(columns=['model_name', 'label', 'score', 'metric'])
+
+    precision, recall, f1, support = precision_recall_fscore_support(y_test, y_pred, average=None)
+    unique_labels = np.unique(y_test)
+    accuracy = accuracy_score(y_test, y_pred)
+
+    for i, label in enumerate(unique_labels):
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': precision[i],  
+            'metric': 'precision' 
+        }, ignore_index=True)
+
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': recall[i],  
+            'metric': 'recall' 
+        }, ignore_index=True)
+
+        df_score = df_score.append({
+            'model_name': model_name,
+            'label': label,
+            'score': f1[i],  
+            'metric': 'f1-score' 
+        }, ignore_index=True)
+
+
+    df_score = df_score.append({
+        'model_name': model_name,
+        'label': 'overall',
+        'score': accuracy,
+        'metric': 'accuracy'
+    }, ignore_index=True)
+
+    return df_score
+    
 
 def set_day_to_first_of_month(date_string):
     date_obj = datetime.strptime(date_string, "%Y-%m-%d")
