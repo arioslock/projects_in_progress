@@ -1,0 +1,206 @@
+a -  albo
+al -  aleja
+alb -  albański
+amer -  amerykański
+anat -  anatomiczne
+ang -  angielski
+antr -  antropologia
+ar -  arabski
+archeol -  archeologia
+archit -  architektura
+astr -  astronomia
+austr -  austriacki
+austral -  australijski
+B -  biernik
+białorus -  białoruski
+biol -  biologia
+blm -  bez liczby mnogiej
+blp -  bez liczby pojedynczej
+bot -  botanika
+bułg -  bułgarski
+C -  celownik
+cd -  ciąg dalszy
+cdn -  ciąg dalszy nastąpi
+celt -  celtycki
+chem -  chemiczny
+chiń -  chiński
+chrześc -  chrześcijański
+CV -  curriculum vitae
+cz -  czas (gramatyczny)
+cz.przesz -  czas przeszły
+cz.przysz -  czas przyszły
+cz.ter -  czas teraźniejszy
+czas -  czasownik
+czes -  czeski
+D -  dopełniacz
+daw -  dawne
+dk -  dokonane
+dr -  doktor
+druk -  drukarstwo
+dziec -  dziecięcy
+egip -  egipski
+ekon -  ekonomiczny
+elektr -  elektryczny
+etn -  etnografia
+euf -  eufemizm
+film -  filmowy
+filoz -  filozoficzny
+fiń -  fiński
+fiz -  fizyka
+fizjol -  fizjologia
+fot -  fotografia
+fr -  francuski
+fragm -  fragment
+fraz -  frazeologia
+genet -  genetyka
+geogr -  geografia
+geol -  geologia
+geom -  geometria
+gr -  grecki
+gw -  gwara
+hand -  handel
+hebr -  hebrajski
+hind -  hinduski
+hist -  historia
+hiszp -  hiszpański
+hol -  holenderski
+im -  imienia
+imiesł -  imiesłów
+in -  inne
+inf -  informacja
+inform -  informatyka
+irl -  irlandzki
+iron -  ironicznie
+isl -  islandzki
+itd -  i tak dalej
+itp -  i tym podobne
+jap -  japoński
+jęz -  język
+kg -  kilogram
+km -  kilometr
+lek -  lekarz
+lic -  licencjat
+lit -  literacki
+lm -  liczba mnoga
+łac -  łacina
+m.in -  między innymi
+mat -  matematyka
+med -  medyczne
+meteor -  meteorologia
+mgr -  magister
+min -  minuta
+miner -  mineralogia
+mit. germ -  mitologia germańska
+mit. gr -  mitologia grecka
+mit. rzym -  mitologia rzymska
+mit -  mitologia
+mors -  morskie
+Ms -  miejscownik
+muz -  muzyczny
+n.e -  nasza era
+ndk -  niedokonany
+ndm -  nieodmienny
+niem -  niemiecki
+nieos -  nieosobowy
+NIP -  Numer Identyfikacji Podatkowej
+norw -  norweski
+np -  na przykład
+nr -  numer
+obelż -  obelżywie
+odm -  odmienny
+ok -  około
+os -  osoba
+p.n.e -  przed naszą erą
+p.o -  pełniący obowiązki
+PESEL -  Powszechny Elektroniczny System Ewidencji Ludności
+pl -  plac
+płd -  południowy
+płn -  północny
+pocz -  początek
+poet -  poetyckie
+pogard -  pogardliwe
+pol -  polski
+polit -  polityczny
+poł -  połowa
+popr -  poprawnie
+por -  porównaj
+port -  portugalski
+posp -  pospolity
+pot -  potocznie
+praw -  prawo
+przen -  przenośnie
+przestarz -  przestarzałe
+przesz -  przeszły
+przym -  przymiotnik
+przysł -  przysłowiowy
+przysłów -  przysłówek
+przysz -  przyszły
+psychol -  psychologia
+r -  rok
+r.m -  rodzaj męski
+r.n -  rodzaj nijaki
+r.ż -  rodzaj żeński
+reg -  regionalne
+rel -  religijny
+rodz -  rodzaj
+roln -  rolnictwo
+ros -  rosyjski
+RP -  Rzeczpospolita Polska
+rub -  rubasznie
+rum -  rumuński
+rzad -  rzadki
+rzecz -  rzeczownik
+rzym -  rzymski
+s -  strona
+S.A -  spółka akcyjna
+sp -  spółka
+o.o -  ograniczoną odpowiedzialnością
+skand -  skandynawski
+skrót -  skrótowiec
+słowac -  słowacki
+socjol -  socjologiczny
+sport -  sportowy
+st -  stopień
+starop -  staropolskie
+staroż -  starożytny
+str -  strona
+szt -  sztuka
+szwedz -  szwedzki
+śr -  środek
+środ -  środowiskowy
+św -  święty, święta
+teatr -  teatralny
+techn -  techniczny
+temp -  temperatura
+ter -  teraźniejszy
+tj -  to jest
+tur -  turecki
+tys -  tysiąc
+tzn -  to znaczy
+tzw -  tak zwany
+ub -  ubiegły
+uczn -  uczniowski
+UE -  Unia Europejska
+ukr -  ukraiński
+ul -  ulica
+urb -  urbanistyka
+USA -  United States of America
+węg -  węgierski
+wf -  wychowanie fizyczne
+wg -  według
+wł -  włoski
+wojsk -  wojskowy
+wsch -  wschodni
+współ -  współcześnie
+wulg -  wulgarne
+wym -  wymawiaj
+zach -  zachodnie
+zdr -  zdrobnienie
+zgr -  zgrubienie
+zn -  znaczy
+zob -  zobacz
+zool -  zoologia
+zwł -  zwłaszcza
+ż -  żeński
+żart -  żartobliwie
+żegl -  żeglarskie

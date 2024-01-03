@@ -1,0 +1,180 @@
+anat. - anatomiczne
+ar. - arabski
+astr. - astronomia
+bułg. - bułgarski
+chem. - chemiczny
+cz. - czas
+druk. - drukarstwo
+ekon. - ekonomiczny
+euf. - eufemizm
+fiń. - fiński
+fot. - fotografia
+fragm. - fragment
+geol. - geologia
+gw. - gwara
+hind. - hinduski
+hol. - holenderski
+in. - inne
+irl. - irlandzki
+itd. - i tak dalej
+jęz. - język
+lit. - literacki
+med. - medyczne
+m.in. - między innymi
+mit. germ. - mitologia germańska
+mors. - morskie
+muz. - muzyczny
+ndk - niedokonany
+nieos. - nieosobowy
+np. - na przykład
+ok. - około
+płn. - północny
+poet. - poetyckie
+polit. - polityczny
+poł. - połowa
+port. - portugalski
+praw. - prawo
+przesz. - przeszły
+przysłów. - przysłówek
+r. - rok
+r.ż. - rodzaj żeński
+rodz. - rodzaj
+rzecz. - rzeczownik
+skrót. - skrótowiec
+sport. - sportowy
+staroż. - starożytny
+śr. - środek
+techn. - techniczny
+tur. - turecki
+tzn. - to znaczy
+urb. - urbanistyka
+węg. - węgierski
+wojsk. - wojskowy
+wulg. - wulgarne
+zdr. - zdrobnienie
+zob. - zobacz
+ż. - żeński
+alb. - albański
+ang. - angielski
+archeol. - archeologia
+austr. - austriacki
+białorus. - białoruski
+blp - bez liczby pojedynczej
+C. - celownik
+chiń. - chiński
+cz.przesz. - czas przeszły
+czas. - czasownik
+daw. - dawne
+dziec. - dziecięcy
+elektr. - elektryczny
+film. - filmowy
+fiz. - fizyka
+fr. - francuski
+genet. - genetyka
+geom. - geometria
+hand. - handel
+hist. - historia
+im. - imienia
+inf. - informacja
+iron. - ironicznie
+itp. - i tym podobne
+kg - kilogram
+lm - liczba mnoga
+m. - męski
+meteor. - meteorologia
+miner. - mineralogia
+mit. gr. - mitologia grecka
+m.-os. - męskoosobowy
+N. - narzędnik
+ndm - nieodmienny
+niem. - niemiecki
+obelż. - obelżywie
+os. - osoba
+p.n.e. - przed naszą erą
+pogard. - pogardliwe
+popr. - poprawnie
+posp. - pospolity
+przen. - przenośnie
+przym. - przymiotnik
+przysz. - przyszły
+r.m. - rodzaj męski
+reg. - regionalne
+roln. - rolnictwo
+rum. - rumuński
+rzym. - rzymski
+słowac. - słowacki
+st. - stopień
+szt. - sztuka
+środ. - środowiskowy
+temp. - temperatura
+tur.-tat. - turecko-tatarski
+uczn. - uczniowski
+W. - wołacz
+wg - według
+wsch. - wschodni
+wym. - wymawiaj
+zgr. - zgrubienie
+zool. - zoologia
+żart. - żartobliwie
+amer. - amerykański
+antr. - antropologia
+archit. - architektura
+austral. - australijski
+biol. - biologia
+bot. - botanika
+celt. - celtycki
+chrześc. - chrześcijański
+cz.przysz. - czas przyszły
+czes. - czeski
+dk - dokonane
+egip. - egipski
+etn. - etnografia
+filoz. - filozoficzny
+fizjol. - fizjologia
+fraz. - frazeologia
+geogr. - geografia
+gr. - grecki
+hebr. - hebrajski
+hiszp. - hiszpański
+imiesł. - imiesłów
+inform. - informatyka
+isl. - islandzki
+jap. - japoński
+km - kilometr
+łac. - łacina
+mat. - matematyka
+min. - minuta
+mit. - mitologia
+mit. rzym. - mitologia rzymska
+Ms. - miejscownik
+n. - nijaki
+n.e. - nasza era
+norw. - norweski
+odm. - odmienny
+płd. - południowy
+pocz. - początek
+pol. - polski
+por. - porównaj
+pot. - potocznie
+przestarz. - przestarzałe
+przysł. - przysłowiowy
+psychol. - psychologia
+r.n. - rodzaj nijaki
+rel. - religijny
+ros. - rosyjski
+rzad. - rzadki
+skand. - skandynawski
+socjol. - socjologiczny
+starop. - staropolskie
+szwedz. - szwedzki
+teatr. - teatralny
+ter. - teraźniejszy
+tys. - tysiąc
+ukr. - ukraiński
+w. - wiek
+wł. - włoski
+współ. - współcześnie
+zach. - zachodnie
+zn. - znaczy
+zwł. - zwłaszcza
+żegl. - żeglarskie
