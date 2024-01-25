@@ -288,59 +288,6 @@ def text_preprocessing(text: str) -> str:
 
     return procesed_text
 
-# def model_score_to_df(y_test: pd.Series, y_pred: np.ndarray, model_name: str) -> pd.DataFrame:
-#     """Generates a DataFrame with model scores such as precision, recall, F1-score, and accuracy.
-
-#     This function takes y_test dataset, y_pred calculated by the model, and the model name as arguments.
-#     It computes core metrics and adds them to a DataFrame.
-
-#     Args:
-#         y_test (pd.Series): Actual labels from the test data.
-#         y_pred (np.ndarray): Predicted labels from the model.
-#         model_name (str): Name of the model.
-
-#     Returns:
-#         DataFrame: DataFrame containing metrics (recall, F1-score, accuracy) per label and accuracy for the model.
-#     """
-
-#     df_score = pd.DataFrame(columns=['model_name', 'label', 'score', 'metric'])
-
-#     precision, recall, f1, support = precision_recall_fscore_support(y_test, y_pred, average=None)
-#     unique_labels = np.unique(y_test)
-#     accuracy = accuracy_score(y_test, y_pred)
-
-#     for i, label in enumerate(unique_labels):
-#         df_score = df_score.append({
-#             'model_name': model_name,
-#             'label': label,
-#             'score': precision[i],  
-#             'metric': 'precision' 
-#         }, ignore_index=True)
-
-#         df_score = df_score.append({
-#             'model_name': model_name,
-#             'label': label,
-#             'score': recall[i],  
-#             'metric': 'recall' 
-#         }, ignore_index=True)
-
-#         df_score = df_score.append({
-#             'model_name': model_name,
-#             'label': label,
-#             'score': f1[i],  
-#             'metric': 'f1-score' 
-#         }, ignore_index=True)
-
-
-#     df_score = df_score.append({
-#         'model_name': model_name,
-#         'label': 'overall',
-#         'score': accuracy,
-#         'metric': 'accuracy'
-#     }, ignore_index=True)
-
-#     return df_score
-
 def model_score_to_df(y_test: pd.Series, y_pred: np.ndarray, model_name: str) -> pd.DataFrame:
     """Generates a DataFrame with model scores such as precision, recall, F1-score, and accuracy.
 
